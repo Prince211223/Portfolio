@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Yadav - UI UX Designer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: #000;
+            color: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links li {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00d9a5;
+        }
+
+        .hero {
+            background: #000;
+            color: #fff;
+            padding: 100px 50px;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            opacity: 0;
+        }
+
+        .hero h1 span {
+            color: #00d9a5;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0;
+        }
+
+        .hero p span {
+            color: #00d9a5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 217, 165, 0.3);
+        }
+
+        .btn-primary {
+            background: #00d9a5;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: #fff;
+        }
+
+        .about {
+            padding: 80px 50px;
+            background: #f5f5f5;
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-text ul {
+            margin-bottom: 20px;
+        }
+
+        .about-text li {
+            margin-bottom: 8px;
+        }
+
+        .about-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .education {
+            padding: 80px 50px;
+            background: #fff;
+        }
+
+        .education h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .education-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 50px;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .education-item::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background: #00d9a5;
+            border-radius: 50%;
+            position: absolute;
+            left: 20px;
+            top: 30px;
+        }
+
+        .education-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .skills {
+            padding: 80px 50px;
+            background: #e0e0e0;
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .skills-grid {
+            display: flex;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .skills-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            min-width: 300px;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .skills-box h3 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .skills-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .skill-icon:hover {
+            background: #00d9a5;
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            padding: 80px 50px;
+            background: #fff;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 350px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-img.project2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .project-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .project-content li {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .project-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #00d9a5;
+        }
+
+        .dot:hover {
+            transform: scale(1.3);
+        }
+
+        .certificates {
+            padding: 80px 50px;
+            background: #f5f5f5;
+        }
+
+        .certificates h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .certificates-grid {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .cert-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            opacity: 0;
+            transform: rotateY(90deg);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .cert-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .view-all a {
+            color: #00d9a5;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .view-all a:hover {
+            text-decoration: underline;
+        }
+
+        .contact {
+            padding: 80px 50px;
+            background: #fff;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .contact-img {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .contact-img svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d9a5;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #333;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00d9a5;
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: #00d9a5;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .about-content,
+            .skills-grid,
+            .projects-grid,
+            .certificates-grid,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Prince Yadav</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#certificate">Certificate</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <h1>Hi, I'm <span>Prince Yadav</span></h1>
+        <p>I'm passionate about <span>UI UX Designer</span></p>
+        <div class="hero-buttons">
+            <a href="#about" class="btn btn-primary">About Me</a>
+            <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="profile-img"></div>
+            <div class="about-text">
+                <p>Prince Yadav is a passionate and detail-oriented UI/UX Designer dedicated to creating user-friendly and aesthetically pleasing digital experiences. With a strong understanding of design principles, user psychology, and visual storytelling, Prince specializes in crafting intuitive interfaces that not only look beautiful but also enhance user engagement.</p>
+                
+                <ul>
+                    <li>User Interface Design (UI)</li>
+                    <li>User Experience Research (UX)</li>
+                    <li>Interaction Design</li>
+                    <li>Wireframing & Prototyping</li>
+                    <li>Responsive Web Design</li>
+                    <li>Usability Testing</li>
+                </ul>
+
+                <p>I understand the user + Create clarity + Deliver smooth interactions.</p>
+                
+                <p>I thrive on projects where creativity meets functionality, and I'm always exploring new ways to improve my craft.</p>
+
+                <div class="about-buttons">
+                    <a href="#" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+
+                <a href="#" class="btn btn-primary" style="margin-top: 20px;">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="education-items">
+            <div class="education-item">
+                <h3>HSC (Higher secondary Certificate)</h3>
+                <p>Durgabari Saraf Junior College</p>
+                <p>April 2024 - March 2024</p>
+                <p>Percentage - 69.70 %</p>
+            </div>
+            <div class="education-item">
+                <h3>BSc CS(Computer science)</h3>
+                <p>University of Mumbai</p>
+                <p>Start - June 2024</p>
+                <p>Thakur Shantilalji Degree college</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skills-box">
+                <h3>Tools</h3>
+                <div class="skills-icons">
+                    <div class="skill-icon">📊 Excel</div>
+                    <div class="skill-icon">📄 Word</div>
+                    <div class="skill-icon">📊 PowerPoint</div>
+                    <div class="skill-icon">💎 Figma</div>
+                    <div class="skill-icon">🎨 Photoshop</div>
+                    <div class="skill-icon">🌐 Webflow</div>
+                    <div class="skill-icon">🐍 Python</div>
+                    <div class="skill-icon">📱 Flutter</div>
+                    <div class="skill-icon">🎬 Premiere Pro</div>
+                </div>
+            </div>
+            <div class="skills-box">
+                <h3>Programming & Databases</h3>
+                <div class="skills-icons">
+                    <div class="skill-icon">📄 HTML</div>
+                    <div class="skill-icon">🎨 CSS</div>
+                    <div class="skill-icon">⚡ JavaScript</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3>Suzi B Youth Visual Theme</h3>
+                    <p>A UI of an E-Commerce Website.</p>
+                    <ul>
+                        <li>LANDING PAGE</li>
+                        <li>SHOP PAGE</li>
+                        <li>PRODUCT PAGE</li>
+                        <li>I used Figma to create my project.</li>
+                        <li>Adobe palette Resource for product Images.</li>
+                    </ul>
+                    <div class="project-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="display: block; text-align: center;">View All Projects →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img project2"></div>
+                <div class="project-content">
+                    <h3>Key Highlights of the Design</h3>
+                    <p>📍 Intentional Layout for Latest News Content</p>
+                    <ul>
+                        <li>NATURE BASED</li>
+                        <li>SPORTS NEWS Section - Taaza Khabar</li>
+                        <li>HEALTH AND FITNESS Section</li>
+                        <li>INTERNATIONAL NEWS Section</li>
+                        <li>HINDI & ENGLISH</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="display: block; text-align: center;">View More</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                <div class="project-content">
+                    <h3>Prime X Website Header Design</h3>
+                    <ul>
+                        <li>Clean Minimal Layout</li>
+                        <li>User-Friendly Structure</li>
+                        <li>Mobile-Optimized and Fluid design</li>
+                        <li>On-brand source with seo easy Integration</li>
+                        <li>Enhanced Navigation</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="display: block; text-align: center;">View More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificate" class="certificates">
+        <h2>Certificates</h2>
+        <div class="certificates-grid">
+            <div class="cert-card">
+                <div class="cert-img"></div>
+                <h3>Be 10X</h3>
+                <p>Coursera</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img"></div>
+                <h3>Deloitte</h3>
+                <p>Coursera</p>
+            </div>
+        </div>
+        <div class="view-all">
+            <a href="#">View All Projects →</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-img">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="200" fill="#e3f2fd"/>
+                    <circle cx="100" cy="60" r="30" fill="#1976d2"/>
+                    <rect x="60" y="100" width="80" height="60" rx="10" fill="#64b5f6"/>
+                    <circle cx="50" cy="150" r="25" fill="#90caf9"/>
+                    <rect x="120" y="130" width="40" height="50" rx="20" fill="#42a5f5"/>
+                </svg>
+                <div class="social-links">
+                    <a href="#">in</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">📧</a>
+                    <a href="#">📱</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div id="formMessage" class="message"></div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Prince Yadav. All Rights Reserved</p>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        // Three.js Hero Background
+        const canvas = document.getElementById('hero-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, 400);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 1000;
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            color: 0x00d9a5,
+            transparent: true,
+            opacity: 0.8
+        });
+        
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+        
+        camera.position.z = 3;
+        
+        // Animation
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        function animateThree() {
+            requestAnimationFrame(animateThree);
+            
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x = mouseY * 0.05;
+            particlesMesh.rotation.y += mouseX * 0.05;
+            
+            renderer.render(scene, camera);
+        }
+        
+        animateThree();
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            camera.aspect = window.innerWidth / heroHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, heroHeight);
+        });
+
+        // Anime.js animations
+        window.addEventListener('load', function() {
+            // Nav animations
+            anime({
+                targets: '.logo',
+                opacity: [0, 1],
+                translateX: [-50, 0],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+
+            anime({
+                targets: '.nav-links li',
+                opacity: [0, 1],
+                translateY: [-20, 0],
+                delay: anime.stagger(100, {start: 300}),
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+
+            // Hero animations
+            anime.timeline()
+                .add({
+                    targets: '.hero h1',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    duration: 1000,
+                    easing: 'easeOutExpo'
+                })
+                .add({
+                    targets: '.hero p',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                }, '-=500')
+                .add({
+                    targets: '.hero-buttons',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 600,
+                    easing: 'easeOutExpo'
+                }, '-=400');
+        });
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    
+                    if (target.classList.contains('education-item')) {
+                        anime({
+                            targets: target,
+                            opacity: [0, 1],
+                            translateX: [-50, 0],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                    
+                    if (target.classList.contains('skills-box')) {
+                        anime({
+                            targets: target,
+                            opacity: [0, 1],
+                            scale: [0.8, 1],
+                            duration: 800,
+                            easing: 'easeOutElastic(1, .6)'
+                        });
+                    }
+                    
+                    if (target.classList.contains('project-card')) {
+                        anime({
+                            targets: target,
+                            opacity: [0, 1],
+                            translateY: [50, 0],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                    
+                    if (target.classList.contains('cert-card')) {
+                        anime({
+                            targets: target,
+                            opacity: [0, 1],
+                            rotateY: [90, 0],
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                    
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.education-item, .skills-box, .project-card, .cert-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form functionality
+        const contactState = {
+            messages: [],
+            initialized: false
+        };
+
+        async function initializeBackend() {
+            try {
+                const result = await window.storage.get('contact-messages');
+                if (result && result.value) {
+                    contactState.messages = JSON.parse(result.value);
+                }
+                contactState.initialized = true;
+            } catch (error) {
+                contactState.messages = [];
+                contactState.initialized = true;
+            }
+        }
+
+        async function saveMessage(messageData) {
+            try {
+                contactState.messages.push(messageData);
+                await window.storage.set('contact-messages', JSON.stringify(contactState.messages));
+                return true;
+            } catch (error) {
+                console.error('Error saving message:', error);
+                return false;
+            }
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            if (!contactState.initialized) {
+                await initializeBackend();
+            }
+
+            const saved = await saveMessage(formData);
+
+            if (saved) {
+                formMessage.textContent = 'Thank you! Your message has been sent successfully. I will get back to you soon!';
+                formMessage.className = 'message success show';
+                this.reset();
+
+                anime({
+                    targets: '#formMessage',
+                    opacity: [0, 1],
+                    translateY: [-20, 0],
+                    duration: 500,
+                    easing: 'easeOutExpo'
+                });
+
+                setTimeout(() => {
+                    formMessage.className = 'message success';
+                }, 5000);
+            } else {
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                formMessage.className = 'message error show';
+                
+                setTimeout(() => {
+                    formMessage.className = 'message error';
+                }, 5000);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+
+        initializeBackend();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
