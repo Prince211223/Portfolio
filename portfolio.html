@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prince Yadav - UI UX Designer</title>
+    <script src="https://kit.fontawesome.com/adc5d91e4b.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
@@ -153,11 +154,15 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 180px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             flex-shrink: 0;
+            border-radius: 50%;  /* makes it round */
+  object-fit: cover;   /* prevents distortion */
+  overflow: hidden;
+
         }
 
         .about-text {
@@ -171,6 +176,8 @@
 
         .about-text ul {
             margin-bottom: 20px;
+            margin-left: 30px;
+            
         }
 
         .about-text li {
@@ -180,7 +187,7 @@
         .about-buttons {
             display: flex;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .education {
@@ -598,9 +605,9 @@
     <section id="about" class="about">
         <h2>About Me</h2>
         <div class="about-content">
-            <div class="profile-img"></div>
+            <div class="profile-img"><img src="office.jpeg" alt="" height="200" width="200" >  </div>
             <div class="about-text">
-                <p>Prince Yadav is a passionate and detail-oriented UI/UX Designer dedicated to creating user-friendly and aesthetically pleasing digital experiences. With a strong understanding of design principles, user psychology, and visual storytelling, Prince specializes in crafting intuitive interfaces that not only look beautiful but also enhance user engagement.</p>
+                <p>Prince Yadav is a passionate and detail-oriented UI/UX Designer dedicated to creating user-friendly and aesthetically<br> pleasing digital experiences. With a strong understanding of design principles, user psychology,<br> and visual storytelling, Prince specializes in crafting intuitive interfaces that not only look <br>beautiful but also enhance user engagement.</p>
                 
                 <ul>
                     <li>User Interface Design (UI)</li>
@@ -618,9 +625,9 @@
                 <div class="about-buttons">
                     <a href="#" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                    <a href="#" class="btn btn-primary">Download CV</a>
                 </div>
 
-                <a href="#" class="btn btn-primary" style="margin-top: 20px;">Download CV</a>
             </div>
         </div>
     </section>
@@ -649,23 +656,44 @@
             <div class="skills-box">
                 <h3>Tools</h3>
                 <div class="skills-icons">
-                    <div class="skill-icon">📊 Excel</div>
-                    <div class="skill-icon">📄 Word</div>
-                    <div class="skill-icon">📊 PowerPoint</div>
-                    <div class="skill-icon">💎 Figma</div>
-                    <div class="skill-icon">🎨 Photoshop</div>
-                    <div class="skill-icon">🌐 Webflow</div>
-                    <div class="skill-icon">🐍 Python</div>
-                    <div class="skill-icon">📱 Flutter</div>
-                    <div class="skill-icon">🎬 Premiere Pro</div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#169154" d="M29,6H15.744C14.781,6,14,6.781,14,7.744v7.259h15V6z"></path><path fill="#18482a" d="M14,33.054v7.202C14,41.219,14.781,42,15.743,42H29v-8.946H14z"></path><path fill="#0c8045" d="M14 15.003H29V24.005000000000003H14z"></path><path fill="#17472a" d="M14 24.005H29V33.055H14z"></path><g><path fill="#29c27f" d="M42.256,6H29v9.003h15V7.744C44,6.781,43.219,6,42.256,6z"></path><path fill="#27663f" d="M29,33.054V42h13.257C43.219,42,44,41.219,44,40.257v-7.202H29z"></path><path fill="#19ac65" d="M29 15.003H44V24.005000000000003H29z"></path><path fill="#129652" d="M29 24.005H44V33.055H29z"></path></g><path fill="#0c7238" d="M22.319,34H5.681C4.753,34,4,33.247,4,32.319V15.681C4,14.753,4.753,14,5.681,14h16.638 C23.247,14,24,14.753,24,15.681v16.638C24,33.247,23.247,34,22.319,34z"></path><path fill="#fff" d="M9.807 19L12.193 19 14.129 22.754 16.175 19 18.404 19 15.333 24 18.474 29 16.123 29 14.013 25.07 11.912 29 9.526 29 12.719 23.982z"></path>
+</svg></div>
+                  <div class="skill-icon">  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#2d92d4" d="M42.256,6H15.744C14.781,6,14,6.781,14,7.744v7.259h30V7.744C44,6.781,43.219,6,42.256,6z"></path><path fill="#2150a9" d="M14,33.054v7.202C14,41.219,14.781,42,15.743,42h26.513C43.219,42,44,41.219,44,40.256v-7.202H14z"></path><path fill="#2d83d4" d="M14 15.003H44V24.005000000000003H14z"></path><path fill="#2e70c9" d="M14 24.005H44V33.055H14z"></path><path fill="#00488d" d="M22.319,34H5.681C4.753,34,4,33.247,4,32.319V15.681C4,14.753,4.753,14,5.681,14h16.638 C23.247,14,24,14.753,24,15.681v16.638C24,33.247,23.247,34,22.319,34z"></path><path fill="#fff" d="M18.403 19L16.857 26.264 15.144 19 12.957 19 11.19 26.489 9.597 19 7.641 19 9.985 29 12.337 29 14.05 21.311 15.764 29 18.015 29 20.359 19z"></path>
+</svg></div>
+                    
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#dc4c2c" d="M8,24c0,9.941,8.059,18,18,18s18-8.059,18-18H26H8z"></path><path fill="#f7a278" d="M26,6v18h18C44,14.059,35.941,6,26,6z"></path><path fill="#c06346" d="M26,6C16.059,6,8,14.059,8,24h18V6z"></path><path fill="#9b341f" d="M22.319,34H5.681C4.753,34,4,33.247,4,32.319V15.681C4,14.753,4.753,14,5.681,14h16.638 C23.247,14,24,14.753,24,15.681v16.638C24,33.247,23.247,34,22.319,34z"></path><path fill="#fff" d="M14.673,19.012H10v10h2.024v-3.521H14.3c1.876,0,3.397-1.521,3.397-3.397v-0.058 C17.697,20.366,16.343,19.012,14.673,19.012z M15.57,22.358c0,0.859-0.697,1.556-1.556,1.556h-1.99v-3.325h1.99 c0.859,0,1.556,0.697,1.556,1.556V22.358z"></path>
+</svg></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#e64a19" d="M26,17h-8c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h8V17z"></path><path fill="#7c4dff" d="M25,31h-7c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h7V31z"></path><path fill="#66bb6a" d="M18,45L18,45c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h7v7C25,41.866,21.866,45,18,45z"></path><path fill="#ff7043" d="M32,17h-7V3h7c3.866,0,7,3.134,7,7v0C39,13.866,35.866,17,32,17z"></path><circle cx="32" cy="24" r="7" fill="#29b6f6"></circle>
+</svg></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#03A9F4" d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4V10z"></path><path fill="#020F16" d="M20.016,19.174h-2.002v4.434h1.973c0.547,0,0.97-0.179,1.27-0.537s0.449-0.879,0.449-1.563c0-0.71-0.153-1.274-0.459-1.694S20.53,19.181,20.016,19.174z"></path><path fill="#020F16" d="M9,9v30h30V9H9z M23.365,24.789C22.539,25.597,21.393,26,19.928,26h-1.914v5h-2.871V16.781h4.844c1.406,0,2.528,0.437,3.364,1.309s1.255,2.005,1.255,3.398S24.192,23.981,23.365,24.789z M32.682,30.336c-0.709,0.573-1.641,0.859-2.793,0.859c-0.775,0-1.459-0.151-2.051-0.454s-1.057-0.725-1.392-1.265s-0.503-1.123-0.503-1.748h2.627c0.014,0.481,0.125,0.843,0.337,1.084s0.558,0.361,1.04,0.361c0.742,0,1.113-0.335,1.113-1.006c0-0.234-0.112-0.451-0.337-0.649S30,27.052,29.225,26.713c-1.139-0.462-1.922-0.94-2.349-1.436s-0.64-1.11-0.64-1.846c0-0.925,0.334-1.688,1.001-2.29s1.552-0.903,2.651-0.903c1.158,0,2.086,0.3,2.783,0.898s1.045,1.403,1.045,2.412h-2.764c0-0.859-0.357-1.289-1.074-1.289c-0.293,0-0.533,0.091-0.723,0.273s-0.283,0.437-0.283,0.762c0,0.234,0.104,0.441,0.313,0.62s0.699,0.435,1.475,0.767c1.127,0.417,1.922,0.881,2.388,1.392s0.698,1.174,0.698,1.987C33.746,29.005,33.391,29.763,32.682,30.336z"></path>
+</svg></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#ff41c8" d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4 V10z"></path><path fill="#16020b" d="M9,9v30h30V9H9z M19.093,21.695l1.914-4.883h3.291l-3.34,7.051l3.418,7.168h-3.33l-1.953-4.971 l-1.943,4.971h-3.33l3.418-7.168l-3.35-7.051h3.291L19.093,21.695z M25.069,25.426c0-1.732,0.293-3.024,0.879-3.877 s1.438-1.279,2.559-1.279c0.813,0,1.491,0.352,2.031,1.055v-5.293h2.783v15h-2.51l-0.127-1.074c-0.566,0.847-1.296,1.27-2.188,1.27 c-1.106,0-1.951-0.423-2.534-1.27s-0.881-2.09-0.894-3.73V25.426z M27.843,26.119c0,1.042,0.11,1.77,0.332,2.183 s0.596,0.62,1.123,0.62c0.547,0,0.96-0.244,1.24-0.732v-4.824c-0.273-0.521-0.684-0.781-1.23-0.781 c-0.508,0-0.879,0.205-1.113,0.615s-0.352,1.14-0.352,2.188V26.119z"></path>
+</svg></div>
+            
+                    <div class="skill-icon"><img src="data:image/png;base64,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" alt="canva"></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M 23.828125 5.3066406 C 20.368125 5.3066406 17.308969 7.0101875 15.417969 9.6171875 L 15.417969 25.722656 L 19.431641 27.980469 L 19.298828 16.128906 C 19.294828 15.770906 19.484922 15.437859 19.794922 15.255859 L 30.957031 8.71875 C 29.211031 6.58075 26.616125 5.3066406 23.828125 5.3066406 z M 35.082031 8.6191406 L 21.306641 16.685547 L 21.357422 21.298828 L 31.554688 15.257812 C 31.862687 15.075812 32.242687 15.070141 32.554688 15.244141 L 43.828125 21.585938 C 44.776125 19.021937 44.567406 16.150578 43.191406 13.767578 C 41.800406 11.359578 39.555141 9.6360156 36.869141 8.9160156 C 36.277141 8.7570156 35.680031 8.6711406 35.082031 8.6191406 z M 13.416016 13.345703 C 10.629016 13.772703 8.2333594 15.394703 6.8183594 17.845703 C 5.4273594 20.253703 5.0573437 23.058141 5.7773438 25.744141 C 5.9493437 26.387141 6.200375 26.992125 6.484375 27.578125 L 20.285156 35.339844 L 24.255859 32.988281 L 13.925781 27.177734 C 13.611781 27.000734 13.416016 26.667641 13.416016 26.306641 L 13.416016 13.345703 z M 32.076172 17.273438 L 28.105469 19.625 L 38.435547 25.435547 C 38.749547 25.613547 38.945312 25.945641 38.945312 26.306641 L 38.945312 39.251953 C 41.703313 38.827953 44.133922 37.211531 45.544922 34.769531 C 46.935922 32.361531 47.305937 29.555141 46.585938 26.869141 C 46.412937 26.226141 46.161953 25.619203 45.876953 25.033203 L 32.076172 17.273438 z M 26.117188 20.802734 L 21.382812 23.607422 L 21.445312 29.111328 L 26.242188 31.810547 L 30.978516 29.005859 L 30.917969 23.501953 L 26.117188 20.802734 z M 32.931641 24.634766 L 33.064453 36.484375 C 33.068453 36.840375 32.880219 37.173469 32.574219 37.355469 L 21.460938 43.957031 C 23.204937 46.058031 25.762203 47.308594 28.533203 47.308594 C 31.993203 47.308594 35.054313 45.604047 36.945312 42.998047 L 36.945312 26.892578 L 32.931641 24.634766 z M 8.5371094 31.029297 C 7.5881094 33.593297 7.791875 36.454703 9.171875 38.845703 C 10.562875 41.253703 12.806188 42.975313 15.492188 43.695312 C 16.144188 43.870312 16.803891 43.958859 17.462891 44.005859 L 31.056641 35.929688 L 31.005859 31.314453 L 20.808594 37.355469 C 20.651594 37.448469 20.475828 37.496094 20.298828 37.496094 C 20.129828 37.496094 19.960594 37.452188 19.808594 37.367188 L 8.5371094 31.029297 z"></path>
+</svg></div>
                 </div>
             </div>
             <div class="skills-box">
                 <h3>Programming & Databases</h3>
                 <div class="skills-icons">
-                    <div class="skill-icon">📄 HTML</div>
-                    <div class="skill-icon">🎨 CSS</div>
-                    <div class="skill-icon">⚡ JavaScript</div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#E65100" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path><path fill="#FF6D00" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path><path fill="#FFF" d="M24,25v-4h8.6l-0.7,11.5L24,35.1v-4.2l4.1-1.4l0.3-4.5H24z M32.9,17l0.3-4H24v4H32.9z"></path><path fill="#EEE" d="M24,30.9v4.2l-7.9-2.6L15.7,27h4l0.2,2.5L24,30.9z M19.1,17H24v-4h-9.1l0.7,12H24v-4h-4.6L19.1,17z"></path>
+</svg></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#0277BD" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path><path fill="#039BE5" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path><path fill="#FFF" d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path><path fill="#EEE" d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
+</svg></div>
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+<path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
+</svg></div>
                 </div>
             </div>
         </div>
